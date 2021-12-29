@@ -1,3 +1,3 @@
 <template>
-    Leaderboard
+    <div>Draw</div>
 </template>

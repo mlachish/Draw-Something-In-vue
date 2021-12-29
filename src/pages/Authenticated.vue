@@ -1,12 +1,28 @@
+<script setup>
+import { useRouter } from 'vue-router';
+import { initGameStatus } from '../compositions/game-status';
+
+import Leaderboard from '../components/Leaderboard.vue';
+
+const isLoggedIn = !!localStorage.getItem("token")
+if (isLoggedIn) {
+    initGameStatus()
+} else {
+    useRouter().push({name: 'login'})
+}
+</script>
+
 <template>
-    <router-view />
+    <router-view class="main"/>
+    <Leaderboard class="side"/>
 </template>
 
-<script setup>
-    import { useRouter } from 'vue-router';
-
-    const isLoggedIn = !!localStorage.getItem("isLoggedIn")
-    if (!isLoggedIn) {
-        useRouter().push({name: 'login'})
+<style scoped>
+    .main {
+        flex: 1; 
     }
-</script>
+
+    .side {
+        flex: 0;
+    }
+</style>

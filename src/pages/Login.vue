@@ -1,12 +1,13 @@
 <script setup>
 import { ref } from "@vue/reactivity";
 import { useRouter } from "vue-router";
+import { start } from '../services/game-api-service'
 
 const player = ref('')
 const router = useRouter()
-const login = () => {
-    localStorage.setItem("isLoggedIn", 1)
-    alert(player.value + " " + "logged in")
+const login = async() => {
+    const data = await start(player.value)
+    localStorage.setItem('token', data.token)
     router.push({name: 'game'})
 }
 </script>
@@ -27,10 +28,10 @@ const login = () => {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    background-color: #fff;
-    border: 1px solid #aaa;
+    border: 3px solid  rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-    box-shadow: 2px 2px #ccc;
+    box-shadow: 0 2px rgba(255, 255, 255, 0.3),
+                0 2px rgba(204, 204, 204, 0.3) inset;
     width: 80%;
     max-width: 600px;
     min-height: 70vh;

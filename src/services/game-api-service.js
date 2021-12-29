@@ -2,12 +2,12 @@ export function start(player) {
     return fetch('https://draw-something-demo.herokuapp.com/api/start', {
         method: 'POST',
         headers: {
-            'contentType': 'application/json'
+            'content-type': 'application/json'
         },
         body: JSON.stringify({
             player
         })
-    }).then(res => res.json)
+    }).then(res => res.json())
 }
 
 export function getStatus(token) {
@@ -15,7 +15,7 @@ export function getStatus(token) {
         headers: {
             'token': token
         }
-    }).then(res => res.json)
+    }).then(res => res.json())
 }
 
 export function getDrawing() {
@@ -23,18 +23,18 @@ export function getDrawing() {
         headers: {
             'token': token
         }
-    }).then(res => res.json)
+    }).then(res => res.json())
 }
 
 export function setDrawing(drawing, token) {
     return fetch('https://draw-something-demo.herokuapp.com/api/drawing', {
         method: 'PUT',
         headers: {
-            'contentType': 'application/json',
+            'content-type': 'application/json',
             'token': token
         },
         body: JSON.stringify({
             drawing
         })
-    }).then(res => res.json)
+    }).then(res => res.json())
 }
