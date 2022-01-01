@@ -33,5 +33,9 @@ const submit = async () => {
 img {
     width: v-bind("$props.width");
     height: v-bind("$props.height");
+    border: 3px solid  rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    box-shadow: 0 2px rgba(255, 255, 255, 0.3),
+                0 2px rgba(204, 204, 204, 0.3) inset;
 }
 </style>

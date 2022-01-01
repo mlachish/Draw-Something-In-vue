@@ -38,6 +38,14 @@ const login = async () => {
     padding: 2vh 2vw;
 }
 
+h1 { 
+    font-size: 3rem;
+}
+
+p { 
+    font-size: 1.5rem;
+}
+
 form.login-input {
     display: flex;
     flex-direction: column;
@@ -45,22 +53,30 @@ form.login-input {
 }
 
 .login-input input {
+    font-size: 1.5rem;
+    background-color: rgba(255,255,255,.3);
     padding: 10px;
+    border: 2px solid rgba(255,255,255,.7);
     border-radius: 5px;
-    box-shadow: 2px 2px #bbb;
-    transition: box-shadow 200ms linear;
+    margin-bottom: 1rem;
 }
 
-.login-input input:hover {
-    box-shadow: 2px 2px rgb(138, 136, 136);
+.login-input input:focus {
+    background-color: rgba(255,255,255,.2)
 }
 
 .login-input button {
+    font-weight: 600;
+    font-size: 1rem;
     margin-top: 5px;
     border: 1px solid black;
     border-radius: 5px;
-    box-shadow: 2px 2px #bbb;
+    box-shadow: 0px 6px 0px 0px #301a6b;
     padding: 5px 10px;
-    background-color: rgb(165, 226, 250);
+    background-color: #fff;
+    cursor: pointer;
+}
+.login-input button:hover {
+    background-color: #b8a8e6;
 }
 </style>

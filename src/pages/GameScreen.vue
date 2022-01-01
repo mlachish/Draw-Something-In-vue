@@ -10,7 +10,7 @@ const isDrawer = computed(() => {
     return !!round.value.word
 })
 const drawerName = computed(() => {
-    return isDrawer.value ? 'me!' : (round.value.drawer?.name || 'Unknown')
+    return isDrawer.value ? 'You are' : (round.value.drawer?.name + 'is' || 'Unknown is')
 }) 
 const width = '500px'
 const height = '500px'
@@ -20,7 +20,7 @@ const height = '500px'
 <template>
     <div class="game">
         <div>
-            <p>{{drawerName}} is drawing</p>
+            <p>{{drawerName}} drawing</p>
         </div>
         <div>
             <Draw v-if="isDrawer" :width="width" :height="height"/>
