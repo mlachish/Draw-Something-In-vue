@@ -18,7 +18,7 @@ export function getStatus(token) {
     }).then(res => res.json())
 }
 
-export function getDrawing() {
+export function getDrawing(token) {
     return fetch('https://draw-something-demo.herokuapp.com/api/drawing', {
         headers: {
             'token': token
@@ -26,7 +26,7 @@ export function getDrawing() {
     }).then(res => res.json())
 }
 
-export function setDrawing(drawing, token) {
+export function setDrawing(draw, token) {
     return fetch('https://draw-something-demo.herokuapp.com/api/drawing', {
         method: 'PUT',
         headers: {
@@ -34,7 +34,20 @@ export function setDrawing(drawing, token) {
             'token': token
         },
         body: JSON.stringify({
-            drawing
+            draw
         })
     }).then(res => res.json())
+}
+
+export function guessWord(word, token) {
+    return fetch('https://draw-something-demo.herokuapp.com/api/word', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json',
+            'token': token
+        },
+        body: JSON.stringify({
+            word
+        })
+    }).then(res => res.status === 200)
 }

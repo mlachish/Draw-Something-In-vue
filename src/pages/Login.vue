@@ -1,11 +1,11 @@
 <script setup>
-import { ref } from "@vue/reactivity";
+import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { start } from '../services/game-api-service'
 
 const player = ref('')
 const router = useRouter()
-const login = async() => {
+const login = async () => {
     const data = await start(player.value)
     localStorage.setItem('token', data.token)
     router.push({name: 'game'})

@@ -1,4 +1,4 @@
-import {createRouter, createWebHistory} from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 
 import GameScreen from './pages/GameScreen.vue'
 import Login from './pages/Login.vue'

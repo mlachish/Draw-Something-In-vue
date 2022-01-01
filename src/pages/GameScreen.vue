@@ -12,6 +12,8 @@ const isDrawer = computed(() => {
 const drawerName = computed(() => {
     return isDrawer.value ? 'me!' : (round.value.drawer?.name || 'Unknown')
 }) 
+const width = '500px'
+const height = '500px'
 
 </script>
 
@@ -21,8 +23,8 @@ const drawerName = computed(() => {
             <p>{{drawerName}} is drawing</p>
         </div>
         <div>
-            <Draw v-if="isDrawer"/>
-            <Guess v-else/>
+            <Draw v-if="isDrawer" :width="width" :height="height"/>
+            <Guess v-else :width="width" :height="height"/>
         </div>
     </div>
 </template>
