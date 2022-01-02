@@ -14,7 +14,7 @@ export function initGameStatus() {
     }
     loadStatus(localStorage.token)
     
-    const getStatusInterval = setInterval(loadStatus, 5000)
+    const getStatusInterval = setInterval(loadStatus, 2000)
     
     onUnmounted(() => {
         clearInterval(getStatusInterval)
