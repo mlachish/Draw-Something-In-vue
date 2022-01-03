@@ -1,12 +1,14 @@
 import { onUnmounted, ref } from 'vue'
 import { getDrawing } from '../services/game-api-service'
 
+const defaultSrc = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUcAAACaCAMAAAANQHocAAAAA1BMVEX///+nxBvIAAAAR0lEQVR4nO3BAQ0AAADCoPdPbQ8HFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPBixVAAASBb17YAAAAASUVORK5CYII='
+
 export function useGameDrawing() {
     const draw = ref('')
 
     const loadDrawing = async() => {
         const data = await getDrawing(localStorage.token)
-        draw.value = data.draw
+        draw.value = data.draw || defaultSrc
     }
     loadDrawing(localStorage.token)
     

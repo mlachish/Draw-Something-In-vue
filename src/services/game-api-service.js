@@ -36,7 +36,7 @@ export function setDrawing(draw, token) {
         body: JSON.stringify({
             draw
         })
-    }).then(res => res.json())
+    })
 }
 
 export function guessWord(word, token) {

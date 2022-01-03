@@ -51,32 +51,4 @@ form.login-input {
     flex-direction: column;
     align-items: center;
 }
-
-.login-input input {
-    font-size: 1.5rem;
-    background-color: rgba(255,255,255,.3);
-    padding: 10px;
-    border: 2px solid rgba(255,255,255,.7);
-    border-radius: 5px;
-    margin-bottom: 1rem;
-}
-
-.login-input input:focus {
-    background-color: rgba(255,255,255,.2)
-}
-
-.login-input button {
-    font-weight: 600;
-    font-size: 1rem;
-    margin-top: 5px;
-    border: 1px solid black;
-    border-radius: 5px;
-    box-shadow: 0px 6px 0px 0px #301a6b;
-    padding: 5px 10px;
-    background-color: #fff;
-    cursor: pointer;
-}
-.login-input button:hover {
-    background-color: #b8a8e6;
-}
 </style>

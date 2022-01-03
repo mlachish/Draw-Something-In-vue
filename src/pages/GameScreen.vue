@@ -10,7 +10,7 @@ const isDrawer = computed(() => {
     return !!round.value.word
 })
 const drawerName = computed(() => {
-    return isDrawer.value ? 'You are' : (round.value.drawer?.name + 'is' || 'Unknown is')
+    return isDrawer.value ? 'You are' : (round.value.drawer?.name + ' is' || 'Unknown is')
 }) 
 const width = '500px'
 const height = '500px'
@@ -30,5 +30,7 @@ const height = '500px'
 </template>
 
 <style scoped>
-
+p {
+    font-weight: bold;
+}
 </style>

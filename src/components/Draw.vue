@@ -1,37 +1,49 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
+import { createDrawingCanvas } from '../services/canvas-service'
+import { setDrawing } from '../services/game-api-service'
+import { useGameStatus } from '../compositions/game-status'
 
 defineProps({width: String, height: String})
 
+const {round} = useGameStatus()
+
 const canvasEl = ref()
+const canvas = ref()
+
+const clearCanvas = () => {
+    canvas.value.clear()
+}
+
+const undoCanvas = () => {
+    canvas.value.undo()
+}
+
 onMounted(() => {
-    console.log(canvasEl.value)
+    canvas.value = createDrawingCanvas(canvasEl.value)
 })
 
-const cfd = new CanvasFreeDrawing({
-    elementId: 'cfd',
-    width: 500,
-    height: 500,
-})
+let lastCanvas = ''
+const getDrawingInterval = setInterval(() => {
+    if (canvasEl.value && lastCanvas !== canvasEl.value.toDataURL()) {
+        lastCanvas = canvasEl.value.toDataURL()
+        setDrawing(lastCanvas)
+    }
+}, 1000)
 
-cfd.setLineWidth(10)
-cfd.setStrokeColor([0, 0, 255])
-
-const clearCanvas = cfd.on({event: 'clear'}, () => {
-    clear()
-})
-
-const UndoAction = cfd.on({event: 'undo'}, () => {
-    Undo()
-})
-
+onUnmounted(() => {
+    clearInterval(getDrawingInterval)
+}) 
 </script>
 
 <template>
     <div>
-        <canvas v-ref="canvasEl" id="cfd"></canvas>
-        <button @click="UndoAction">Undo</button>
-        <button @click="clearCanvas">Clear</button>
+        <p>Draw {{round.word}}</p>
+        <canvas ref="canvasEl" id="draw-canvas"></canvas>
+        <div>
+            <button @click="undoCanvas">Undo</button>
+            <button @click="clearCanvas">Clear</button>
+        </div>
     </div>
 </template>
 
@@ -43,5 +55,9 @@ canvas {
     border-radius: 5px;
     box-shadow: 0 2px rgba(255, 255, 255, 0.3),
                 0 2px rgba(204, 204, 204, 0.3) inset;
+}
+
+button {
+    margin: 0 1rem;
 }
 </style>

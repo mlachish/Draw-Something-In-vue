@@ -40,6 +40,34 @@ body {
   align-items: center;
 }
 
+input {
+  font-size: 1rem;
+  background-color: rgba(255,255,255,.3);
+  padding: 10px;
+  border: 2px solid rgba(255,255,255,.7);
+  border-radius: 5px;
+}
+
+input:focus {
+  background-color: rgba(255,255,255,.2)
+}
+
+button {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 0px 6px 0px 0px #301a6b;
+  padding: 5px 10px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+    background-color: #b8a8e6;
+}
+
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
