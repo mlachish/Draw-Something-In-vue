@@ -6,7 +6,7 @@ import { useGameStatus } from '../compositions/game-status'
 
 defineProps({width: String, height: String})
 
-const {round} = useGameStatus()
+const { round } = useGameStatus()
 
 const canvasEl = ref()
 const canvas = ref()
@@ -38,7 +38,7 @@ onUnmounted(() => {
 
 <template>
     <div>
-        <p>Draw {{round.word}}</p>
+        <p>Draw <span>{{round.word}}</span></p>
         <canvas ref="canvasEl" id="draw-canvas"></canvas>
         <div>
             <button @click="undoCanvas">Undo</button>
@@ -59,5 +59,13 @@ canvas {
 
 button {
     margin: 0 1rem;
+}
+
+span {
+    padding: 0.5rem;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    transform: rotate(90deg);
 }
 </style>

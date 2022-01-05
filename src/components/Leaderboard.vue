@@ -12,9 +12,6 @@ const {me, players} = useGameStatus()
                 :key="player.id" 
                 :class="{'no-points': !player.points, 'player-score': true, 'my-score': player.id === me.id}"
             >
-                <!-- {{if (player.name === me.name) {
-                    // class="my-score"
-                }}} -->
                 <p>{{player.name}}</p>
                 <p>{{player.points}}</p>
             </div>
@@ -33,6 +30,8 @@ const {me, players} = useGameStatus()
 }
 
 .my-score {
+    padding: 0.5rem;
     border: 1px solid black;
+    border-radius: 5px;
 }
 </style>
