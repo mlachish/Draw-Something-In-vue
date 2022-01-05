@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "canvas-free-drawing": "^2.1.0",
+    "pinia": "^2.0.9",
     "vue": "^3.2.25",
     "vue-router": "^4.0.12"
   },

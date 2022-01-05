@@ -1,16 +1,17 @@
-import { onUnmounted, ref } from 'vue'
-import { getStatus } from '../services/game-api-service'
+import { onUnmounted } from 'vue'
+import { storeToRefs } from 'pinia'
 
-const me = ref({})
-const players = ref([])
-const round = ref({})
+import { getStatus } from '../services/game-api-service'
+import { useGameStatusStore } from '../store/game-status'
 
 export function initGameStatus() {
+    const store = useGameStatusStore()
+
     const loadStatus = async() => {
         const data = await getStatus(localStorage.token) 
-        me.value = data.me
-        players.value = data.players
-        round.value = data.round
+        Object.assign(store.me, data.me)
+        store.players = data.players
+        store.round = data.round
     }
     loadStatus(localStorage.token)
     
@@ -22,5 +23,6 @@ export function initGameStatus() {
 }
 
 export function useGameStatus() {
-    return {me, players, round}
+    const { me, players, round } = storeToRefs(useGameStatusStore())
+    return { me, players, round }
 }

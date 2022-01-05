@@ -12,8 +12,7 @@ const {me, players} = useGameStatus()
                 :key="player.id" 
                 :class="{'no-points': !player.points, 'player-score': true, 'my-score': player.id === me.id}"
             >
-                <p>{{player.name}}</p>
-                <p>{{player.points}}</p>
+                <p>{{player.name}} : {{player.points}}</p>
             </div>
         </div>
     </div>
