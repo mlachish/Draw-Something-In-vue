@@ -17,7 +17,7 @@ const login = async () => {
         <h1>Draw Something In Vue!</h1>
         <form class="login-input" @submit.prevent="login">
             <p>Enter your name:</p>
-            <input type="text" placeholder="Rick Sanchez" v-model="player">
+            <input type="text" placeholder="Nickname" v-model="player">
             <button>Let's Play!</button>
         </form>
     </div>

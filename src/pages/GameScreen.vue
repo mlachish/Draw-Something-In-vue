@@ -19,6 +19,7 @@ const height = '500px'
 
 <template>
     <div class="game">
+        <h2>Draw Something In Vue!</h2>
         <div>
             <p>{{drawerName}} drawing</p>
         </div>
@@ -30,6 +31,12 @@ const height = '500px'
 </template>
 
 <style scoped>
+h2 { 
+    position: absolute;
+    top: 1rem;
+    left: 2rem;
+}
+
 p {
     font-weight: bold;
 }

@@ -38,7 +38,7 @@ onUnmounted(() => {
 
 <template>
     <div>
-        <p>Draw <span>{{round.word}}</span></p>
+        <p> <span>Draw</span> <span class="word">{{round.word}}</span></p>
         <canvas ref="canvasEl" id="draw-canvas"></canvas>
         <div>
             <button @click="undoCanvas">Undo</button>
@@ -58,14 +58,31 @@ canvas {
 }
 
 button {
-    margin: 0 1rem;
+    margin: 1rem 1rem;
+}
+
+p {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 span {
+    margin-right: 1rem;
+}
+.word {
     padding: 0.5rem;
-    background-color: white;
+    background-color: rgb(231, 231, 231);
     border: 1px solid black;
+    box-shadow: 2px 2px,
+                inset 2px 2px rgb(255, 255, 255);
     border-radius: 5px;
-    transform: rotate(90deg);
+    transform: rotate(-10deg);
+}
+
+.word:hover {
+    box-shadow: inset 2px 2px,
+                2px 2px rgb(255, 255, 255);
 }
 </style>
